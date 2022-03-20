@@ -1,13 +1,13 @@
 import json
 from Planet import *
 
-class cGameConfig:
+class cGameState:
 
 	def __init__(self):
 		self.iNumPlayers = 2
 		self.vPlanets = list()
 
-	def CreateFromGameConfig(self, strFilename):
+	def CreateFromConfig(self, strFilename):
 		dictCfg = dict()
 		with open(strFilename) as json_data_file:
 			dictCfg = json.load(json_data_file)
@@ -33,13 +33,13 @@ class cGameConfig:
 		self.iNumPlayers = iNumPlayers
 
 	def ToString(self):
-		print("Game Config:")
+		print("Game State:")
 		print("Num Players:", self.iNumPlayers)
 		for Planet in self.vPlanets:
 			print(Planet.ToString())
 			
 	def WriteExampleConfigTest():
-		localGameConfig = cGameConfig()
-		localGameConfig.vPlanets.append(cPlanet(localGameConfig.GetNumPlayers()))
-		localGameConfig.vPlanets.append(cPlanet(localGameConfig.GetNumPlayers()))
-		localGameConfig.WriteGameConfigFile("ExampleGameConfig.json")
+		localGameState = cGameState()
+		localGameState.vPlanets.append(cPlanet(localGameState.GetNumPlayers()))
+		localGameState.vPlanets.append(cPlanet(localGameState.GetNumPlayers()))
+		localGameState.WriteGameConfigFile("ExampleGameConfig.json")

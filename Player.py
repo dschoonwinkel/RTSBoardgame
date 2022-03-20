@@ -1,4 +1,4 @@
 class cPlayer:
 	def __init__(self):
-		self.ShipGroupList = list()
+		self.vShipGroups = list()
 		self.iResources = 0

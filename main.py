@@ -7,7 +7,7 @@ from ShipGroup import *
 def main():
 	print("Starting RTS Boardgame Monte Carlo Simulation")
 	localGameConfig = cGameConfig()
-	localGameConfig.CreateFromGameConfig("GameConfig.json")
+	localGameConfig.CreateFromConfig("GameConfig.json")
 	for Planet in localGameConfig.vPlanets:
 		print(Planet.ToString())
 
