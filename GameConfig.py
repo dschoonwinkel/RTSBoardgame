@@ -1,11 +1,15 @@
 import json
 from Planet import *
+from Player import *
 
 class cGameState:
 
 	def __init__(self):
 		self.iNumPlayers = 2
 		self.vPlanets = list()
+		self.vPlayers = list()
+		for i in range(self.iNumPlayers):
+			self.vPlayers.append(cPlayer())
 
 	def CreateFromConfig(self, strFilename):
 		dictCfg = dict()
@@ -43,3 +47,8 @@ class cGameState:
 		localGameState.vPlanets.append(cPlanet(localGameState.GetNumPlayers()))
 		localGameState.vPlanets.append(cPlanet(localGameState.GetNumPlayers()))
 		localGameState.WriteGameConfigFile("ExampleGameConfig.json")
+
+	def SimulateTick():
+		for Player in self.vPlayers:
+			for ShipGroup in Player.vShipGroups:
+				ShipGroup.CalculateCurrentAttack()
