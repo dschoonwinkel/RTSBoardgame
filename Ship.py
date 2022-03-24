@@ -5,7 +5,8 @@ class cShip:
 		self.strShipType = "Fighter"
 		self.iDiceType = 4
 		self.iHealth = 4
-		self.iCost = 4
+	
+	iCost = 4
 
 	def ToString(self):
 		strOutput = ""

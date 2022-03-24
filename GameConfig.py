@@ -48,7 +48,33 @@ class cGameState:
 		localGameState.vPlanets.append(cPlanet(localGameState.GetNumPlayers()))
 		localGameState.WriteGameConfigFile("ExampleGameConfig.json")
 
-	def SimulateTick():
+	def SimulateTick(self):
 		for Player in self.vPlayers:
-			for ShipGroup in Player.vShipGroups:
-				ShipGroup.CalculateCurrentAttack()
+			Player.CollectResources()
+
+		for Player in self.vPlayers:
+			Player.BuildShips()
+
+		for Player in self.vPlayers:
+			Player.GroupShips()
+
+		for Player in self.vPlayers:
+			Player.MoveShips()
+
+		for Player in self.vPlayers:
+			Player.CalculateCurrentAttack()
+
+		for Player in self.vPlayers:
+			Player.DiscoverTargets()
+
+		for Player in self.vPlayers:
+			Player.SelectTargets()
+
+		for Player in self.vPlayers:
+			Player.AttackTargets()
+
+		for Player in self.vPlayers:
+			Player.CleanUpBattle()
+
+		for Player in self.vPlayers:
+			Player.UpgradePlanets()

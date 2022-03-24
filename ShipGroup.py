@@ -1,13 +1,11 @@
 from Ship import *
-
-iGlobalShipGroupCounter = 0
+import uuid
 
 class cShipGroup:
-	def __init__(self, iOwner):
-		self.iUniqueID = iGlobalShipGroupCounter
-		iGlobalShipGroupCounter += 1
+	def __init__(self, OwnerUUID):
+		self.UUID = uuid.uuid4()
 		self.vShips = list()
-		self.iOwner = iOwner
+		self.OwnerUUID = OwnerUUID
 
 	def AddShipToGroup(self, Ship):
 		self.vShips.append(Ship)
@@ -19,9 +17,11 @@ class cShipGroup:
 				break
 
 	def ToString(self):
-		strOutput = ""
+		strOutput = "Ship group UUID: %s\n" % str(self.UUID)
+		strOutput += "Owner UUID %s\n" % str(self.OwnerUUID)
 		for Ship in self.vShips:
 			strOutput += Ship.ToString() + "\n"
+		return strOutput
 
 	def CalculateCurrentAttack(self):
 		self.iTotalAttack = 0
