@@ -16,12 +16,12 @@ def main():
 	localGameState = cGameState()
 	localGameState.CreateFromConfig("GameConfig.json")
 	for Planet in localGameState.vPlanets:
-		print(Planet.ToString())
+		print(Planet)
 
 	for i in range(len(localGameState.vPlayers)):
 		print("Player %d" % i)
 		localGameState.vPlayers[i].AddPlanet(localGameState.vPlanets[i])
-		print(localGameState.vPlayers[i].ToString())
+		print(localGameState.vPlayers[i])
 	time.sleep(10)
 	try:
 		while (True):
@@ -31,7 +31,7 @@ def main():
 			localGameState.SimulateTick()
 			for i in range(len(localGameState.vPlayers)):
 				print("Player %d" % i)
-				print(localGameState.vPlayers[i].ToString())
+				print(localGameState.vPlayers[i])
 			time.sleep(5)
 	except KeyboardInterrupt:
 		print("Stopping Main loop")

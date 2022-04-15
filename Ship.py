@@ -8,12 +8,14 @@ class cShip:
 	
 	iCost = 4
 
-	def ToString(self):
+	def __str__(self):
 		strOutput = ""
 		strOutput += self.strShipType + "\n"
 		strOutput += "Dice Type: D%d\n" % self.iDiceType
 		strOutput += "Health: %d\n" % self.iHealth
 		strOutput += "Cost: %d\n" % self.iCost 
+
+		return strOutput
 
 	def CalculateAttack(self):
 		return random.randint(1,self.iDiceType)

@@ -36,11 +36,11 @@ class cGameState:
 	def SetNumPlayers(self, iNumPlayers):
 		self.iNumPlayers = iNumPlayers
 
-	def ToString(self):
+	def __str__(self):
 		print("Game State:")
 		print("Num Players:", self.iNumPlayers)
 		for Planet in self.vPlanets:
-			print(Planet.ToString())
+			print(Planet)
 			
 	def WriteExampleConfigTest():
 		localGameState = cGameState()

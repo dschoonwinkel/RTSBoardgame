@@ -21,7 +21,7 @@ class cPlanet:
 	def RemoveShipGroupFromPlanet(self, ShipGroup):
 		self.vShipGroups.remove(ShipGroup)
 
-	def ToString(self):
+	def __str__(self):
 		strDescription = ""
 		strDescription += "Planet %s:\n" % self.strName 
 		strDescription += "Planet Health: %d\n" % self.iPlanetHealth
